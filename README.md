@@ -2,44 +2,57 @@
 
 A growing collection of my favourite custom Claude Code resources in one place.
 
-## Quick Start
+## Installation
+
+### Option 1: Plugin Install (Recommended)
+
+```bash
+# Add as a marketplace and install
+claude plugin marketplace add glittercowboy/taches-cc-resources
+claude plugin install taches-cc-resources
+```
+
+### Option 2: Manual Install
 
 ```bash
 # Clone the repo
 git clone https://github.com/glittercowboy/taches-cc-resources.git
 cd taches-cc-resources
 
-# Install prompts
-cp prompts/meta-prompting/*.md ~/.claude/commands/
-cp prompts/todo-management/*.md ~/.claude/commands/
-cp prompts/context-handoff/*.md ~/.claude/commands/
+# Install commands
+cp commands/*.md ~/.claude/commands/
 
 # Install skills
-cp skills/create-agent-skills/commands/*.md ~/.claude/commands/
-cp -r skills/create-agent-skills/skills/* ~/.claude/skills/
-cp skills/create-meta-prompts/commands/*.md ~/.claude/commands/
-cp -r skills/create-meta-prompts/skills/* ~/.claude/skills/
+cp -r skills/* ~/.claude/skills/
 ```
 
 Commands install globally to `~/.claude/commands/`. Skills install to `~/.claude/skills/`. Project-specific data (prompts, todos) lives in each project's working directory.
 
-## Prompts
+## Commands
 
-### [Meta-Prompting](./prompts/meta-prompting/)
+### Meta-Prompting
 
 A systematic approach to building complex software by delegating prompt engineering to Claude itself. Instead of telling Claude what to do, you tell Claude what you want, and it figures out how to ask itself to do it.
 
+- `/create-prompt` - Generate optimized prompts with XML structure
+- `/run-prompt` - Execute saved prompts in sub-agent contexts
+
 Perfect for complex refactoring, new features, and multi-step tasks where you want rigorous specifications without manually crafting detailed prompts.
 
-### [Todo Management](./prompts/todo-management/)
+### Todo Management
 
 Capture ideas mid-conversation without losing focus. When you spot a bug, think of a feature, or notice something to refactor - but don't want to derail your current work - `/add-to-todos` captures it with full context. Later, `/check-todos` resumes exactly where you left off.
 
+- `/add-to-todos` - Capture tasks with full context
+- `/check-todos` - Resume work on captured tasks
+
 Perfect for staying focused while building a backlog of improvements, features, and research tasks that won't be forgotten.
 
-### [Context Handoff](./prompts/context-handoff/)
+### Context Handoff
 
 Continue work in a fresh context without losing progress. `/whats-next` analyzes the current conversation and creates a structured handoff document with what was completed, what remains, and critical context. Reference it in your next chat to resume seamlessly.
+
+- `/whats-next` - Create handoff document for fresh context
 
 Perfect for when your context is getting full, you need a clean slate, or you're switching between tasks and want to preserve exactly where you left off.
 
